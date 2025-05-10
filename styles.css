@@ -1,0 +1,303 @@
+/* 🌿 Базовий стиль для всіх тем */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.5s, color 0.5s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    background-color: #d4f5d4;
+    box-shadow: 0 2px 6px rgba(34, 139, 34, 0.4);
+}
+
+.navbar ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.navbar li a {
+    color: #1f7a1f;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar li a:hover {
+    background-color: #b6e2b6;
+    color: #003300;
+}
+
+header, section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+    background-color: rgba(240, 255, 240, 0.85);
+}
+
+h1, h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+img[alt*="Фото"] {
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 3px solid #60c860;
+    box-shadow: 0 0 10px #82e682;
+}
+
+ul {
+    list-style: square inside;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+li {
+    background-color: #e2f5e2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+li:hover {
+    transform: scale(1.05);
+    background-color: #d0ecd0;
+}
+
+a {
+    color: #1a661a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #45a745;
+}
+
+a[target="_blank"]:hover {
+    color: #66cc66;
+}
+
+/* Footer (інформація про систему) */
+footer {
+    background-color: #1a0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+/* 🌞 Світла тема */
+body.day-theme {
+    background: linear-gradient(to right, #eaffea, #c5f7c5);
+    color: #083b08;
+}
+
+body.day-theme .navbar {
+    background-color: #d4f5d4;
+    box-shadow: 0 2px 6px rgba(34, 139, 34, 0.4);
+}
+
+body.day-theme .navbar li a {
+    color: #1f7a1f;
+}
+
+body.day-theme .navbar li a:hover {
+    background-color: #b6e2b6;
+    color: #003300;
+}
+
+body.day-theme header,
+body.day-theme section {
+    background-color: rgba(240, 255, 240, 0.85);
+}
+
+body.day-theme h1,
+body.day-theme h2 {
+    color: #0d660d;
+}
+
+/* 🌗 Темна тема */
+body.night-theme {
+    background: linear-gradient(to right, #0f0f0f, #003300);
+    color: #d0f0d0;
+}
+
+body.night-theme .navbar {
+    background-color: #003300;
+    box-shadow: 0 2px 6px rgba(0, 255, 0, 0.4);
+}
+
+body.night-theme .navbar li a {
+    color: #66ff66;
+}
+
+body.night-theme .navbar li a:hover {
+    background-color: #004d00;
+    color: #ffffff;
+}
+
+body.night-theme header,
+body.night-theme section {
+    background-color: rgba(10, 30, 10, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+body.night-theme h1,
+body.night-theme h2 {
+    color: #aaffaa;
+}
+
+body.night-theme li {
+    background-color: #113311;
+}
+
+body.night-theme li:hover {
+    background-color: #226622;
+}
+
+body.night-theme a {
+    color: #80ff80;
+}
+
+body.night-theme a:hover {
+    color: #b3ffb3;
+}
+
+/* 🌙 Перемикач теми */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1001;
+}
+
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.theme-toggle label {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.theme-toggle label::after {
+    content: '';
+    width: 26px;
+    height: 26px;
+    background: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+#themeSwitch:checked + label {
+    background-color: #66bb66;
+}
+
+#themeSwitch:checked + label::after {
+    transform: translateX(30px);
+}
+
+/* 📨 Модальне вікно */
+#feedback-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f5fff5;
+    border: 2px solid #4caf50;
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0,128,0,0.5);
+    max-width: 400px;
+    width: 90%;
+}
+
+#feedback-modal h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#feedback-modal input,
+#feedback-modal textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+#feedback-modal button {
+    margin-top: 10px;
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#feedback-modal button[type="button"] {
+    background-color: #888;
+}
+
+#feedback-modal button:hover {
+    opacity: 0.9;
+}
+
+/* Адаптивність */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    img[alt*="Фото"] {
+        width: 100px;
+        height: 100px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    section ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
